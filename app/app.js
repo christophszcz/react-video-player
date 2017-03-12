@@ -1,7 +1,32 @@
-var React = require('react'); 
+var React = require('react');
 var ReactDOM = require('react-dom');
+var Video = require('./components/Video');
+var Menu = require('./components/Menu');
+
+var VIDEOS = {
+  fast: 'https://s3.amazonaws.com/codecademy-content/courses/React/react_video-fast.mp4',
+  slow: 'https://s3.amazonaws.com/codecademy-content/courses/React/react_video-slow.mp4',
+  cute: 'https://s3.amazonaws.com/codecademy-content/courses/React/react_video-cute.mp4',
+  eek: 'https://s3.amazonaws.com/codecademy-content/courses/React/react_video-eek.mp4'
+};
+
+var App = React.createClass({
+  getInitialState: function () {
+    return { src: VIDEOS.fast };
+  },
+
+  render: function () {
+    return (
+      <div>
+        <h1>Video Player</h1>
+        <Menu/>
+        <Video />
+      </div>
+    );
+  }
+});
 
 ReactDOM.render(
-  <Component />,
+  <App />, 
   document.getElementById('app')
 );

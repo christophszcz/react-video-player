@@ -48,8 +48,39 @@
 
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(158);
+	var Video = __webpack_require__(159);
+	var Menu = __webpack_require__(160);
 
-	ReactDOM.render(React.createElement(Component, null), document.getElementById('app'));
+	var VIDEOS = {
+	  fast: 'https://s3.amazonaws.com/codecademy-content/courses/React/react_video-fast.mp4',
+	  slow: 'https://s3.amazonaws.com/codecademy-content/courses/React/react_video-slow.mp4',
+	  cute: 'https://s3.amazonaws.com/codecademy-content/courses/React/react_video-cute.mp4',
+	  eek: 'https://s3.amazonaws.com/codecademy-content/courses/React/react_video-eek.mp4'
+	};
+
+	var App = React.createClass({
+	  displayName: 'App',
+
+	  getInitialState: function getInitialState() {
+	    return { src: VIDEOS.fast };
+	  },
+
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'h1',
+	        null,
+	        'Video Player'
+	      ),
+	      React.createElement(Menu, null),
+	      React.createElement(Video, null)
+	    );
+	  }
+	});
+
+	ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
 
 /***/ },
 /* 1 */
@@ -19744,6 +19775,57 @@
 
 	module.exports = __webpack_require__(3);
 
+
+/***/ },
+/* 159 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var Video = React.createClass({
+	  displayName: 'Video',
+
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement('video', { controls: true, autostart: true, autoplay: true })
+	    );
+	  }
+	});
+
+	module.exports = Video;
+
+/***/ },
+/* 160 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+
+	var Menu = React.createClass({
+	  displayName: "Menu",
+
+	  render: function render() {
+	    return React.createElement(
+	      "form",
+	      null,
+	      React.createElement("input", { type: "radio", name: "src", value: "fast" }),
+	      " fast",
+	      React.createElement("input", { type: "radio", name: "src", value: "slow" }),
+	      " slow",
+	      React.createElement("input", { type: "radio", name: "src", value: "cute" }),
+	      " cute",
+	      React.createElement("input", { type: "radio", name: "src", value: "eek" }),
+	      " eek"
+	    );
+	  }
+	});
+
+	module.exports = Menu;
 
 /***/ }
 /******/ ]);
