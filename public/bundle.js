@@ -65,6 +65,12 @@
 	    return { src: VIDEOS.fast };
 	  },
 
+	  chooseVideo: function chooseVideo(newVideo) {
+	    this.setState({
+	      src: VIDEOS[newVideo]
+	    });
+	  },
+
 	  render: function render() {
 	    return React.createElement(
 	      'div',
@@ -74,7 +80,7 @@
 	        null,
 	        'Video Player'
 	      ),
-	      React.createElement(Menu, null),
+	      React.createElement(Menu, { chooseVideo: this.chooseVideo }),
 	      React.createElement(Video, { src: this.state.src })
 	    );
 	  }
@@ -19809,10 +19815,16 @@
 	var Menu = React.createClass({
 	  displayName: "Menu",
 
+
+	  handleClick: function handleClick(e) {
+	    var text = e.target.value;
+	    this.props.chooseVideo(text);
+	  },
+
 	  render: function render() {
 	    return React.createElement(
 	      "form",
-	      null,
+	      { onClick: this.handleClick },
 	      React.createElement("input", { type: "radio", name: "src", value: "fast" }),
 	      " fast",
 	      React.createElement("input", { type: "radio", name: "src", value: "slow" }),
