@@ -15,11 +15,17 @@ var App = React.createClass({
     return { src: VIDEOS.fast };
   },
 
+  chooseVideo: function (newVideo) {
+    this.setState({
+      src: VIDEOS[newVideo]
+    });
+  },
+
   render: function () {
     return (
       <div>
         <h1>Video Player</h1>
-        <Menu/>
+        <Menu chooseVideo={this.chooseVideo} />
         <Video src={this.state.src} />
       </div>
     );
