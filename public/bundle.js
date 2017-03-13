@@ -75,7 +75,7 @@
 	        'Video Player'
 	      ),
 	      React.createElement(Menu, null),
-	      React.createElement(Video, null)
+	      React.createElement(Video, { src: this.state.src })
 	    );
 	  }
 	});
@@ -19791,7 +19791,7 @@
 	    return React.createElement(
 	      'div',
 	      null,
-	      React.createElement('video', { controls: true, autostart: true, autoplay: true })
+	      React.createElement('video', { controls: true, autostart: true, autoplay: true, src: this.props.src })
 	    );
 	  }
 	});
