@@ -10,10 +10,10 @@ var Menu = React.createClass({
   render: function () {
     return (
       <form onClick={this.handleClick}>
-        <input type="radio" name="src" value="fast" /> fast
-        <input type="radio" name="src" value="slow" /> slow
-        <input type="radio" name="src" value="cute" /> cute
-        <input type="radio" name="src" value="eek" /> eek
+        <input type="radio" name="src" value="science" /> science
+        <input type="radio" name="src" value="mathematics" /> mathematics
+        <input type="radio" name="src" value="programming" /> programming
+        <input type="radio" name="src" value="physics" /> physics
       </form>
     );
   }
